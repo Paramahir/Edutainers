@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Elementry Level game-2</title>
+    <link rel="stylesheet" type="text/css" href="style/selectCateGory.css" />
+    <style>
+        .topcontainer {
+            height: 20%;
+            width: 1210px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .Playarea {
+            float: left;
+            height: 40%;
+            width: 100%;
+            margin-top: 1%;
+        }
+        
+        .downcontainer {
+            height: 20%;
+            width: 1210px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #leftarrow {
+            float: left;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-right: 100px solid black;
+            border-bottom: 50px solid transparent;
+            margin: 15% 0% 2% 0%;
+            cursor: pointer;
+        }
+        
+        #rightarrow {
+            float: right;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-left: 100px solid black;
+            border-bottom: 50px solid transparent;
+            margin: 15% 0% 2% 0%;
+            cursor: pointer;
+        }
+        
+        #displayimage {
+            float: left;
+            height: 100%;
+            width: 50%;
+            background: white;
+            margin-left: 10%;
+        }
+        
+        #displayimage img {
+            height: 100%;
+            width: 100%;
+            display: none;
+        }
+        
+        .imageContainer {
+            height: 120px;
+            width: 120px;
+            background: white;
+            float: left;
+            margin-right: 1px;
+            margin-top: 15px;
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 1px 1px 2px #ccc;
+        }
+        
+        #midContainer {
+            float: left;
+            width: 50%;
+            height: 100%;
+            margin-left: 1%;
+            margin-right: auto;
+        }
+        
+        #leftImage {
+            height: 100%;
+            width: 24%;
+            float: left;
+            background: white url('img/animalsbg.png') no-repeat center;
+            background-size: 100% auto;
+            border-radius: 0px 10px 10px 0px;
+            box-shadow: 1px 1px 2px #ccc;
+        }
+        
+        #rightImage {
+            height: 100%;
+            width: 24%;
+            float: right;
+            background: white url('img/birdsbg.png') no-repeat center;
+            background-size: 100% auto;
+            border-radius: 10px 0px 0px 10px;
+            box-shadow: 1px 1px 2px #ccc;
+        }
+        
+        #rightImage img {
+            height: 100%;
+            width: 100%;
+            display: none;
+            background: white;
+        }
+        
+        #leftImage img {
+            height: 100%;
+            width: 100%;
+            display: none;
+            background: white;
+        }
+        
+        #back {
+            position: absolute;
+            width: 5.5%;
+            height: 5%;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            box-shadow: 1px 1px 2px #ccc;
+            background: royalblue;
+            margin-top: 1.5%;
+            font-size: 1.5em;
+        }
+        
+        #back a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+        }
+        
+        #playagain {
+            position: absolute;
+            width: 5.5%;
+            height: 9%;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            box-shadow: 1px 1px 2px #ccc;
+            background: royalblue;
+            margin-top: 4.5%;
+            font-size: 1.2em;
+        }
+        
+        #playagain a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="userContainer">
+            <div id="userImage"></div>
+            <div class="welcome">સુસ્વાગતમ્,</div>
+            <div id="userName"></div>
+            <div id="logout" onclick="changeuser();"><a href="enterName_gujarati.html">-> નામ અને આયકન બદલો</a></div>
+            <div id="changeLanguage"><a href="index.html">-> ભાષા બદલો</a></div>
+        </div>
+        <div id="Heading">Edutainer's</div>
+    </div>
+    <div id="content">
+        <div id="back"><a href="elementry.html">BACK</a></div>
+        <div id="playagain"><a href="elementry_game2.html">Play</br>Again</a></div>
+        <div class="topcontainer">
+            <div class="imageContainer" data="" id="1" onclick="initiateimg(1)"></div>
+            <div class="imageContainer" data="" id="2" onclick="initiateimg(2)"></div>
+            <div class="imageContainer" data="" id="3" onclick="initiateimg(3)"></div>
+            <div class="imageContainer" data="" id="4" onclick="initiateimg(4)"></div>
+            <div class="imageContainer" data="" id="5" onclick="initiateimg(5)"></div>
+            <div class="imageContainer" data="" id="6" onclick="initiateimg(6)"></div>
+            <div class="imageContainer" data="" id="7" onclick="initiateimg(7)"></div>
+            <div class="imageContainer" data="" id="8" onclick="initiateimg(8)"></div>
+            <div class="imageContainer" data="" id="9" onclick="initiateimg(9)"></div>
+            <div class="imageContainer" data="" id="10" onclick="initiateimg(10)"></div>
+        </div>
+        <div class="Playarea">
+            <div id="leftImage"></div>
+            <div id="midContainer">
+                <div claas="arrow" id="leftarrow"></div>
+                <div id="displayimage"></div>
+                <div claas="arrow" id="rightarrow"></div>
+            </div>
+            <div id="rightImage"></div>
+        </div>
+        <div class="downcontainer">
+            <div class="imageContainer" data="" id="11" onclick="initiateimg(11)"></div>
+            <div class="imageContainer" data="" id="12" onclick="initiateimg(12)"></div>
+            <div class="imageContainer" data="" id="13" onclick="initiateimg(13)"></div>
+            <div class="imageContainer" data="" id="14" onclick="initiateimg(14)"></div>
+            <div class="imageContainer" data="" id="15" onclick="initiateimg(15)"></div>
+            <div class="imageContainer" data="" id="16" onclick="initiateimg(16)"></div>
+            <div class="imageContainer" data="" id="17" onclick="initiateimg(17)"></div>
+            <div class="imageContainer" data="" id="18" onclick="initiateimg(18)"></div>
+            <div class="imageContainer" data="" id="19" onclick="initiateimg(19)"></div>
+            <div class="imageContainer" data="" id="20" onclick="initiateimg(20)"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            checkOldUser();
+            loadGame();
+        });
+        /************************************************************************************/
+        var unique_random_numbers = [];
+
+        function loadGame() {
+            var limit = 20
+                , amount = 20
+                , lower_bound = 1
+                , upper_bound = 20;
+            if (amount > limit) limit = amount; //Infinite loop if you want more unique
+            //Natural numbers than existemt in a
+            // given range
+            while (unique_random_numbers.length < limit) {
+                var random_number = Math.round(Math.random() * (upper_bound - lower_bound) + lower_bound);
+                if (unique_random_numbers.indexOf(random_number) == -1) {
+                    // Yay! new random number
+                    unique_random_numbers.push(random_number);
+                }
+            }
+            // unique_random_numbers is an array containing 3 unique numbers in the given range
+            loadImages();
+        }
+        /************************************************************************************/
+        function loadImages() {
+            for (i = 1; i <= 20; i++) {
+                $("#" + i).css("backgroundImage", "url(img/Elementary_2/" + unique_random_numbers[i - 1] + ".png");
+                $("#" + i).attr("data", unique_random_numbers[i - 1]);
+            }
+        }
+        /************************************************************************************/
+        function checkOldUser() {
+            if (getCookie("name") != "" && getCookie("icon") != "") {
+                setUserData();
+            }
+            else {
+                window.location.assign("enterNameEnglish.html");
+            }
+        }
+        /************************************************************************************/
+        function setUserData() {
+            document.getElementById("userName").innerHTML = getCookie("name");
+            if (getCookie("icon") < 10) {
+                document.getElementById("userImage").innerHTML = "<img src=img/icons/0" + getCookie("icon") + ".png />";
+            }
+            else {
+                document.getElementById("userImage").innerHTML = "<img src=img/icons/" + getCookie("icon") + ".png />";
+            }
+        }
+        /************************************************************************************/
+        function changeuser() {
+            document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            document.cookie = "icon=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        }
+        newbg = 0;
+        bg = "";
+        var score = 0; /************************************************************************************/
+        function initiateimg(num) {
+            bg = "img/Elementary_2/" + $("#" + num).attr("data") + ".png";
+            $("#" + num).css("background", "white");
+            document.getElementById("displayimage").innerHTML = "<img id=image src=" + bg + " />";
+            $("#image").fadeIn(1000);
+            newbg = $("#" + num).attr("data");
+        }
+        /************************************************************************************/
+        $("#leftarrow").click(function () {
+            if (newbg >= 0 && newbg <= 10) {
+                document.getElementById("displayimage").innerHTML = "";
+                document.getElementById("leftImage").innerHTML = "<img id=animalsimg src=" + bg + "/>";
+                $("#animalsimg").fadeIn(300, function () {
+                    $("#animalsimg").fadeOut(300);
+                });
+                score++;
+                if (score <= 0) score = 0;
+                setCookie("e2", score, 365);
+                document.getElementById("score").innerHTML = "| score:" + score;
+            }
+            else {
+                score--;
+                if (score <= 0) score = 0;
+                setCookie("e2", score, 365);
+                document.getElementById("score").innerHTML = "| score:" + score;
+                document.getElementById("displayimage").innerHTML = "";
+            }
+        });
+        $("#rightarrow").click(function () {
+            if (newbg >= 11 && newbg <= 20) {
+                document.getElementById("displayimage").innerHTML = "";
+                document.getElementById("rightImage").innerHTML = "<img id=birdsimg src=" + bg + "/>";
+                $("#birdsimg").fadeIn(250, function () {
+                    $("#birdsimg").fadeOut(250);
+                });
+                score++;
+                if (score <= 0) score = 0;
+                setCookie("e2", score, 365);
+                document.getElementById("score").innerHTML = "| score:" + score;
+            }
+            else {
+                score--;
+                if (score <= 0) score = 0;
+                setCookie("e2", score, 365);
+                document.getElementById("score").innerHTML = "| score:" + score;
+                document.getElementById("displayimage").innerHTML = "";
+            }
+        });
+        /************************************************************************************/
+    </script>
+</body>
+
+</html>

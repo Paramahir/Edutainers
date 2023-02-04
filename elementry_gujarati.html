@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Elementry Level</title>
+    <link rel="stylesheet" type="text/css" href="style/selectCateGory.css" />
+    <style>
+        .gamdata {
+            float: left;
+            height: 350px;
+            width: 300px;
+            margin: 5% 5% 0% 5%;
+        }
+        
+        .gameimage {
+            float: left;
+            height: 300px;
+            width: 300px;
+            margin: 5% 5% 0% 5%;
+        }
+        
+        .gamename {
+            float: left;
+            width: 300px;
+            height: 35px;
+            background: white;
+            margin: 0% 5% 5% 5%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            padding-top: 2%;
+        }
+        
+        #game1 {
+            background: white url('img/elementary_1_background.jpg') no-repeat center;
+        }
+        
+        #game2 {
+            background: white url('img/Elementary_2_background.png') no-repeat center;
+        }
+        
+        #game3 {
+            background: white url('img/elementry_3_background.jpg') repeat center;
+        }
+        
+        .playbutton {
+            float: left;
+            width: 140px;
+            height: 50px;
+            background: royalblue;
+            border: 5px solid #000;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            font-size: 40px;
+        }
+        
+        .playinfo {
+            float: left;
+            width: 140px;
+            height: 50px;
+            background: #3B3436;
+            border: 5px solid #000;
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        
+        .playbox {
+            width: 300px;
+            float: left;
+            margin-left: 5%;
+            margin-top: -5%;
+            background-color: #3B3436;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="userContainer">
+            <div id="userImage"></div>
+            <div class="welcome">સુસ્વાગતમ્,</div>
+            <div id="userName"></div>
+            <div id="logout" onclick="changeuser();"><a href="enterName_gujarati.html">-> નામ અને આયકન બદલો</a></div>
+            <div id="changeLanguage"><a href="index.html">-> ભાષા બદલો</a></div>
+        </div>
+        <div id="Heading">Edutainer's</div>
+    </div>
+    <div class="backbar" style="width:100%;height:75px;background:#F8C471;position: absolute;top:150px;">
+        <a href="selectCategory_gujarati.html">
+            <div class="backButton" style="width: 150px;height: 100%;background: transparent url(img/left_arrow.png) center no-repeat;background-size: auto 75%; float: left;position: relative;"> </div>
+        </a>
+    </div>
+    <div id="content">
+        <div id="e_1">
+            <div class="gamdata">
+                <div class="gameimage" id="game1"></div>
+                <div class="gamename">ફળો અને શાકભાજી</div>
+                <div class="playbox">
+                    <div class="playbutton" onclick="playcounter(1)">રમો</div>
+                    <div class="playinfo" id="1"></div>
+                </div>
+                <div class="hscore" id="hscore1"></div>
+            </div>
+        </div>
+        <div id="e_2">
+            <div class="gamdata">
+                <div class="gameimage" id="game2"></div>
+                <div class="gamename">પ્રાણીઓ અને પક્ષીઓ</div>
+                <div class="playbox">
+                    <div class="playbutton" onclick="playcounter(2)">રમો</div>
+                    <div class="playinfo" id="2"></div>
+                </div>
+                <div class="hscore" id="hscore2"></div>
+            </div>
+        </div>
+        <div id="e_3">
+            <div class="gamdata">
+                <div class="gameimage" id="game3"></div>
+                <div class="gamename">અનાજ અને કઠોળ</div>
+                <div class="playbox">
+                    <div class="playbutton" onclick="playcounter(3)">રમો</div>
+                    <div class="playinfo" id="3"></div>
+                </div>
+                <div class="hscore" id="hscore3"></div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                checkOldUser();
+            });
+            /************************************************************************************/
+            function checkOldUser() {
+                if (getCookie("name") != "" && getCookie("icon") != "") {
+                    setUserData();
+                    initializeCategories();
+                }
+                else {
+                    window.location.assign("enterName_gujarati.html");
+                }
+            }
+            /************************************************************************************/
+            function setUserData() {
+                document.getElementById("userName").innerHTML = getCookie("name");
+                document.getElementById("1").innerHTML = getCookie("elementry_game1") + "વખત તમે  રમ્યા";
+                document.getElementById("2").innerHTML = getCookie("elementry_game2") + "વખત તમે  રમ્યા";
+                document.getElementById("3").innerHTML = getCookie("elementry_game3") + "વખત તમે  રમ્યા";
+                document.getElementById("hscore1").innerHTML = " સ્કોર :" + getCookie("eg1");
+                document.getElementById("hscore2").innerHTML = " સ્કોર :" + getCookie("eg2");
+                document.getElementById("hscore3").innerHTML = " સ્કોર :" + getCookie("eg3");
+                if (getCookie("icon") < 10) {
+                    document.getElementById("userImage").innerHTML = "<img src=img/icons/0" + getCookie("icon") + ".png />";
+                }
+                else {
+                    document.getElementById("userImage").innerHTML = "<img src=img/icons/" + getCookie("icon") + ".png />";
+                }
+            }
+
+            function changeuser() {
+                document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+                document.cookie = "icon=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            }
+
+            function playcounter(num) {
+                switch (num) {
+                case 1:
+                    {
+                        if (getCookie("elementry_game1") == "") {
+                            setCookie("elementry_game1", 1, 365);
+                            document.getElementById("1").innerHTML = getCookie("elementry_game1") + "વખત તમે  રમ્યા";
+                            window.location.assign("elementry_game1_gujarati.html");
+                            break;
+                        }
+                        else {
+                            setCookie("elementry_game1", parseInt(getCookie("elementry_game1")) + 1, 365);
+                            document.getElementById("1").innerHTML = getCookie("elementry_game1") + "વખત તમે  રમ્યા";
+                            window.location.assign("elementry_game1_gujarati.html");
+                            break;
+                        }
+                    }
+                case 2:
+                    {
+                        if (getCookie("elementry_game2") == "") {
+                            setCookie("elementry_game2", 1, 365);
+                            document.getElementById("2").innerHTML = getCookie("elementry_game2") + "વખત તમે  રમ્યા";
+                            window.location.assign("elementry_game2_gujarati.html");
+                            break;
+                        }
+                        else {
+                            setCookie("elementry_game2", parseInt(getCookie("elementry_game2")) + 1, 365);
+                            document.getElementById("2").innerHTML = getCookie("elementry_game2") + "વખત તમે  રમ્યા";
+                            window.location.assign("elementry_game2_gujarati.html");
+                            break;
+                        }
+                    }
+                case 3:
+                    {
+                        if (getCookie("elementry_game3") == "") {
+                            setCookie("elementry_game3", 1, 365);
+                            document.getElementById("3").innerHTML = getCookie("elementry_game3") + "વખત તમે  રમ્યાy";
+                            window.location.assign("elementry_game3_gujarati.html");
+                            break;
+                        }
+                        else {
+                            setCookie("elementry_game3", parseInt(getCookie("elementry_game3")) + 1, 365);
+                            document.getElementById("3").innerHTML = getCookie("elementry_game3") + "વખત તમે  રમ્યા";
+                            window.location.assign("elementry_game3_gujarati.html");
+                            break;
+                        }
+                    }
+                }
+            }
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>advance Level</title>
+    <link rel="stylesheet" type="text/css" href="style/selectCateGory.css" />
+    <style>
+        .gamdata {
+            float: left;
+            height: 350px;
+            width: 300px;
+            margin: 5% 5% 0% 15%;
+        }
+        
+        .gameimage {
+            float: left;
+            height: 300px;
+            width: 300px;
+            margin: 5% 5% 0% 5%;
+        }
+        
+        .gamename {
+            float: left;
+            width: 300px;
+            height: 35px;
+            background: white;
+            margin: 0% 5% 5% 5%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            padding-top: 2%;
+        }
+        
+        #game1 {
+            background: white url('img/advance_1_background.jpg') no-repeat center;
+        }
+        
+        #game2 {
+            background: white url('img/advance2bg.gif') no-repeat center;
+            background-size: cover;
+        }
+        
+        .playbutton {
+            float: left;
+            width: 140px;
+            height: 50px;
+            background: royalblue;
+            border: 5px solid #000;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            font-size: 40px;
+        }
+        
+        .playinfo {
+            float: left;
+            width: 140px;
+            height: 50px;
+            background: #3B3436;
+            border: 5px solid #000;
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        
+        .playbox {
+            width: 300px;
+            float: left;
+            margin-left: 5%;
+            margin-top: -5%;
+            background-color: #3B3436;
+        }
+        
+        #back {
+            position: absolute;
+            width: 8%;
+            height: 7%;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            box-shadow: 1px 1px 2px #ccc;
+            background: royalblue;
+            margin-top: 1.5%;
+            font-size: 2em;
+        }
+        
+        #back a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+        }
+        
+        #e_3 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="userContainer">
+            <div id="userImage"></div>
+            <div class="welcome">સુસ્વાગતમ્,</div>
+            <div id="userName"></div>
+            <div id="logout" onclick="changeuser();"><a href="enterName_gujarati.html">-> નામ અને આયકન બદલો</a></div>
+            <div id="changeLanguage"><a href="index.html">-> ભાષા બદલો</a></div>
+        </div>
+        <div id="Heading">Edutainer's</div>
+    </div>
+    <div id="content">
+        <div id="back"><a href="selectCategory_gujarati.html"> બેક</a></div>
+        <div id="e_1">
+            <div class="gamdata">
+                <div class="gameimage" id="game1"></div>
+                <div class="gamename">ટ્રાફિક પ્રતીકો</div>
+                <div class="playbox">
+                    <div class="playbutton" onclick="playcounter(1)">રમો</div>
+                    <div class="playinfo" id="1"></div>
+                </div>
+                <div class="hscore" id="hscore1"></div>
+            </div>
+        </div>
+        <div id="e_2">
+            <div class="gamdata">
+                <div class="gameimage" id="game2"></div>
+                <div class="gamename">ભારતના રાજ્યો</div>
+                <div class="playbox">
+                    <div class="playbutton" onclick="playcounter(2)">રમો</div>
+                    <div class="playinfo" id="2"></div>
+                </div>
+            </div>
+        </div>
+        <div id="e_3">
+            <div class="gamdata">
+                <div class="gameimage" id="game3"></div>
+                <div class="gamename"></div>
+                <div class="playbox">
+                    <div class="playbutton" onclick="playcounter(3)">રમો</div>
+                    <div class="playinfo" id="3"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                checkOldUser();
+            });
+            /************************************************************************************/
+            function checkOldUser() {
+                if (getCookie("name") != "" && getCookie("icon") != "") {
+                    setUserData();
+                    initializeCategories();
+                }
+                else {
+                    window.location.assign("enterName_gujarati.html");
+                }
+            }
+            /************************************************************************************/
+            function setUserData() {
+                document.getElementById("userName").innerHTML = getCookie("name");
+                document.getElementById("1").innerHTML = getCookie("advance_game1") + "વખત તમે  રમ્યા";
+                document.getElementById("2").innerHTML = getCookie("advance_game2") + "વખત તમે  રમ્યા";
+                document.getElementById("3").innerHTML = getCookie("advance_game3") + "વખત તમે  રમ્યા";
+                document.getElementById("hscore1").innerHTML = " સ્કોર :" + getCookie("ag1");
+                if (getCookie("icon") < 10) {
+                    document.getElementById("userImage").innerHTML = "<img src=img/icons/0" + getCookie("icon") + ".png />";
+                }
+                else {
+                    document.getElementById("userImage").innerHTML = "<img src=img/icons/" + getCookie("icon") + ".png />";
+                }
+            }
+
+            function changeuser() {
+                document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+                document.cookie = "icon=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            }
+
+            function playcounter(num) {
+                switch (num) {
+                case 1:
+                    {
+                        if (getCookie("advance_game1") == "") {
+                            setCookie("advance_game1", 1, 365);
+                            document.getElementById("1").innerHTML = getCookie("advance_game1") + "વખત તમે  રમ્યા";
+                            window.location.assign("advance_game1_gujarati.html");
+                            break;
+                        }
+                        else {
+                            setCookie("advance_game1", parseInt(getCookie("advance_game1")) + 1, 365);
+                            document.getElementById("1").innerHTML = getCookie("advance_game1") + "વખત તમે  રમ્યા";
+                            window.location.assign("advance_game1_gujarati.html");
+                            break;
+                        }
+                    }
+                case 2:
+                    {
+                        if (getCookie("advance_game2") == "") {
+                            setCookie("advance_game2", 1, 365);
+                            document.getElementById("2").innerHTML = getCookie("advance_game2") + "વખત તમે  રમ્યા";
+                            window.location.assign("advance_game2_gujarati.html");
+                            break;
+                        }
+                        else {
+                            setCookie("advance_game2", parseInt(getCookie("advance_game2")) + 1, 365);
+                            document.getElementById("2").innerHTML = getCookie("advance_game2") + "વખત તમે  રમ્યા";
+                            window.location.assign("advance_game2_gujarati.html");
+                            break;
+                        }
+                    }
+                    /*case 3:{if(getCookie("advance_game3")=="")
+                    {   setCookie("advance_game3",1,365);
+                         document.getElementById("3").innerHTML = getCookie("advance_game3")+"વખત તમે  રમ્યા";
+                        window.location.assign("advance_game3_gujarati.html");
+                        break;
+                   }
+                    else {
+                        setCookie("advance_game3",parseInt(getCookie("advance_game3")) + 1,365);
+                         document.getElementById("3").innerHTML = getCookie("advance_game3")+"વખત તમે  રમ્યા";
+                        window.location.assign("advance_game3_gujarati.html");
+                        break;
+                    }
+                   }*/
+                }
+            }
+        </script>
+</body>
+
+</html>

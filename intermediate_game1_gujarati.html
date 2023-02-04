@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Intermediate Level game-1</title>
+    <link rel="stylesheet" type="text/css" href="style/selectCateGory.css" />
+    <style>
+        .topcontainer {
+            height: 20%;
+            width: 1210px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .Playarea {
+            float: left;
+            height: 40%;
+            width: 100%;
+            margin-top: 1%;
+        }
+        
+        .downcontainer {
+            height: 20%;
+            width: 1210px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .imageContainer {
+            height: 120px;
+            width: 120px;
+            background: white;
+            float: left;
+            margin-right: 1px;
+            margin-top: 15px;
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 1px 1px 2px #ccc;
+        }
+        
+        .leftarea {
+            float: left;
+            height: 100%;
+            width: 30%;
+            margin-left: 5%;
+        }
+        
+        #displayimage {
+            float: left;
+            height: 100%;
+            width: 30%;
+            background: white;
+        }
+        
+        #displayimage img {
+            height: 100%;
+            width: 100%;
+            display: none;
+        }
+        
+        .rightarea {
+            float: left;
+            height: 100%;
+            width: 30%;
+        }
+        
+        .countryname {
+            float: left;
+            height: 15%;
+            width: 40%;
+            background: white;
+            margin: 3% 5% 0% 5%;
+            box-shadow: 2px 2px 2px #555;
+            border-radius: 5px 5px 5px 5px;
+            text-align: center;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        
+        #back {
+            position: absolute;
+            width: 5.5%;
+            height: 5%;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            box-shadow: 1px 1px 2px #ccc;
+            background: royalblue;
+            margin-top: 1.5%;
+            font-size: 1.5em;
+        }
+        
+        #back a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+        }
+        
+        #playagain {
+            position: absolute;
+            width: 5.5%;
+            height: 9%;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            box-shadow: 1px 1px 2px #ccc;
+            background: royalblue;
+            margin-top: 4.5%;
+            font-size: 1.2em;
+        }
+        
+        #playagain a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="userContainer">
+            <div id="userImage"></div>
+            <div class="welcome">સુસ્વાગતમ્,</div>
+            <div id="userName"></div>
+            <div id="logout" onclick="changeuser();"><a href="enterName_gujarati.html">-> નામ અને આયકન બદલો</a></div>
+            <div id="changeLanguage"><a href="index.html">-> ભાષા બદલો</a></div>
+        </div>
+        <div id="Heading">Edutainer's</div>
+    </div>
+    <div id="content">
+        <div id="back"><a href="intermediate_gujarati.html">બેક</a></div>
+        <div id="playagain"><a href="intermediate_game1_gujarati.html">ફરી</br>રમવા</a></div>
+        <div class="topcontainer">
+            <div class="imageContainer" data="" id="1" onclick="initiateimg(1)"></div>
+            <div class="imageContainer" data="" id="2" onclick="initiateimg(2)"></div>
+            <div class="imageContainer" data="" id="3" onclick="initiateimg(3)"></div>
+            <div class="imageContainer" data="" id="4" onclick="initiateimg(4)"></div>
+            <div class="imageContainer" data="" id="5" onclick="initiateimg(5)"></div>
+            <div class="imageContainer" data="" id="6" onclick="initiateimg(6)"></div>
+            <div class="imageContainer" data="" id="7" onclick="initiateimg(7)"></div>
+            <div class="imageContainer" data="" id="8" onclick="initiateimg(8)"></div>
+            <div class="imageContainer" data="" id="9" onclick="initiateimg(9)"></div>
+            <div class="imageContainer" data="" id="10" onclick="initiateimg(10)"></div>
+        </div>
+        <div class="Playarea">
+            <div class="leftarea">
+                <div class="countryname" id="c1" onclick="checkimg(1)">ભારત</div>
+                <div class="countryname" id="c2" onclick="checkimg(2)">અમેરિકા</div>
+                <div class="countryname" id="c3" onclick="checkimg(3)">નેપાળ</div>
+                <div class="countryname" id="c4" onclick="checkimg(4)">જાપાન</div>
+                <div class="countryname" id="c5" onclick="checkimg(5)">ચીન</div>
+                <div class="countryname" id="c6" onclick="checkimg(6)">રશિયા</div>
+                <div class="countryname" id="c7" onclick="checkimg(7)">બ્રાઝીલ</div>
+                <div class="countryname" id="c8" onclick="checkimg(8)">ડેનમાર્ક</div>
+                <div class="countryname" id="c9" onclick="checkimg(9)">ફ્રાન્સ</div>
+                <div class="countryname" id="c10" onclick="checkimg(10)"> ઈજીપ્ત</div>
+            </div>
+            <div id="displayimage"></div>
+            <div class="rightarea">
+                <div class="countryname" id="c11" onclick="checkimg(11)">ઇટાલી</div>
+                <div class="countryname" id="c12" onclick="checkimg(12)">ન્યુ ઝિલેન્ડ</div>
+                <div class="countryname" id="c13" onclick="checkimg(13)">પાકિસ્તાન</div>
+                <div class="countryname" id="c14" onclick="checkimg(14)">પોલેન્ડ</div>
+                <div class="countryname" id="c15" onclick="checkimg(15)">સ્પેન</div>
+                <div class="countryname" id="c16" onclick="checkimg(16)">દક્ષિણ આફ્રિકા</div>
+                <div class="countryname" id="c17" onclick="checkimg(17)">સ્વિટ્ઝર્લૅન્ડ</div>
+                <div class="countryname" id="c18" onclick="checkimg(18)">થાઇલેન્ડ</div>
+                <div class="countryname" id="c19" onclick="checkimg(19)">યુકે</div>
+                <div class="countryname" id="c20" onclick="checkimg(20)">યુએઈ</div>
+            </div>
+        </div>
+        <div class="downcontainer">
+            <div class="imageContainer" data="" id="11" onclick="initiateimg(11)"></div>
+            <div class="imageContainer" data="" id="12" onclick="initiateimg(12)"></div>
+            <div class="imageContainer" data="" id="13" onclick="initiateimg(13)"></div>
+            <div class="imageContainer" data="" id="14" onclick="initiateimg(14)"></div>
+            <div class="imageContainer" data="" id="15" onclick="initiateimg(15)"></div>
+            <div class="imageContainer" data="" id="16" onclick="initiateimg(16)"></div>
+            <div class="imageContainer" data="" id="17" onclick="initiateimg(17)"></div>
+            <div class="imageContainer" data="" id="18" onclick="initiateimg(18)"></div>
+            <div class="imageContainer" data="" id="19" onclick="initiateimg(19)"></div>
+            <div class="imageContainer" data="" id="20" onclick="initiateimg(20)"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            checkOldUser();
+            loadGame();
+        });
+        /************************************************************************************/
+        var unique_random_numbers = [];
+
+        function loadGame() {
+            var limit = 20
+                , amount = 20
+                , lower_bound = 1
+                , upper_bound = 20;
+            if (amount > limit) limit = amount; //Infinite loop if you want more unique
+            //Natural numbers than existemt in a
+            // given range
+            while (unique_random_numbers.length < limit) {
+                var random_number = Math.round(Math.random() * (upper_bound - lower_bound) + lower_bound);
+                if (unique_random_numbers.indexOf(random_number) == -1) {
+                    // Yay! new random number
+                    unique_random_numbers.push(random_number);
+                }
+            }
+            // unique_random_numbers is an array containing 3 unique numbers in the given range
+            loadImages();
+        }
+        score = 0; /************************************************************************************/
+        function loadImages() {
+            for (i = 1; i <= 20; i++) {
+                $("#" + i).css("backgroundImage", "url(img/intermediate_1/" + unique_random_numbers[i - 1] + ".png");
+                $("#" + i).attr("data", unique_random_numbers[i - 1]);
+            }
+        }
+        /************************************************************************************/
+        function checkOldUser() {
+            if (getCookie("name") != "" && getCookie("icon") != "") {
+                setUserData();
+            }
+            else {
+                window.location.assign("enterName_gujarati.html");
+            }
+        }
+        /************************************************************************************/
+        function setUserData() {
+            document.getElementById("userName").innerHTML = getCookie("name");
+            if (getCookie("icon") < 10) {
+                document.getElementById("userImage").innerHTML = "<img src=img/icons/0" + getCookie("icon") + ".png />";
+            }
+            else {
+                document.getElementById("userImage").innerHTML = "<img src=img/icons/" + getCookie("icon") + ".png />";
+            }
+        }
+        /************************************************************************************/
+        function changeuser() {
+            document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            document.cookie = "icon=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        }
+        newbg = 0;
+        bg = "";
+        /************************************************************************************/
+        function initiateimg(num) {
+            bg = "img/intermediate_1/" + $("#" + num).attr("data") + ".png";
+            $("#" + num).css("background", "white");
+            document.getElementById("displayimage").innerHTML = "<img id=image src=" + bg + " />";
+            $("#image").fadeIn(1000);
+            newbg = $("#" + num).attr("data");
+        }
+
+        function checkimg(a) {
+            if (a == newbg) {
+                score++;
+                if (score <= 0) score = 0;
+                document.getElementById("score").innerHTML = "| સ્કોર :" + score;
+                $("#image").fadeOut(250);
+                document.getElementById("c" + a).innerHTML = " ";
+            }
+            else {
+                score--;
+                if (score <= 0) score = 0;
+                document.getElementById("score").innerHTML = "| સ્કોર :" + score;
+                $("#image").fadeOut(250);
+            }
+            setCookie("ig1", score, 365);
+        }
+    </script>
+</body>
+
+</html>

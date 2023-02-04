@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Advance Level game-1</title>
+    <link rel="stylesheet" type="text/css" href="style/selectCateGory.css" />
+    <style>
+        .top {
+            float: left;
+            height: 40%;
+            width: 100%;
+            margin-top: 5px;
+        }
+        
+        .bottom {
+            position: absolute;
+            top: 43%;
+            width: 100%;
+            height: 60%;
+        }
+        
+        .topcontainer {
+            float: left;
+            height: 35%;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #capitalname {
+            float: left;
+            height: 20%;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            background: royalblue;
+            box-shadow: 2px 2px 2px #555;
+        }
+        
+        .capital {
+            float: left;
+            height: 30%;
+            width: 10%;
+            margin: 9px 5px 5px 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            background: white;
+            box-shadow: 2px 2px 2px #555;
+            border-radius: 5px 5px 5px 5px;
+        }
+        
+        #languagename {
+            float: left;
+            height: 20%;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            background: royalblue;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 2px 2px 2px #555;
+        }
+        
+        .language {
+            float: left;
+            height: 30%;
+            width: 10%;
+            margin: 9px 5px 5px 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            background: white;
+            box-shadow: 2px 2px 2px #555;
+            border-radius: 5px 5px 5px 5px;
+        }
+        
+        .bottomcontainer {
+            float: left;
+            height: 35%;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #displayimage {
+            float: left;
+            height: 85%;
+            width: 30%;
+            margin-left: 35%;
+            background: white;
+        }
+        
+        #displayimage img {
+            height: 100%;
+            width: 100%;
+        }
+        
+        #next {
+            float: left;
+            height: 15%;
+            width: 30%;
+            margin-left: 35%;
+            border-top: 3px solid black;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+            background: #3B3436;
+        }
+        
+        #back {
+            position: absolute;
+            width: 5.5%;
+            height: 5%;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            box-shadow: 1px 1px 2px #ccc;
+            background: royalblue;
+            margin-top: 1.5%;
+            font-size: 1.5em;
+        }
+        
+        #back a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+        }
+        
+        #playagain {
+            position: absolute;
+            width: 5.5%;
+            height: 9%;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            box-shadow: 1px 1px 2px #ccc;
+            background: royalblue;
+            margin-top: 4.5%;
+            font-size: 1.2em;
+        }
+        
+        #playagain a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="userContainer">
+            <div id="userImage"></div>
+            <div class="welcome">સુસ્વાગતમ્,</div>
+            <div id="userName"></div>
+            <div id="logout" onclick="changeuser();"><a href="enterName_gujarati.html">-> નામ અને આયકન બદલો</a></div>
+            <div id="changeLanguage"><a href="index.html">-> ભાષા બદલો</a></div>
+        </div>
+        <div id="Heading">Edutainer's</div>
+    </div>
+    <div id="content">
+        <div class="top">
+            <div id="back"><a href="advance.html">BACK</a></div>
+            <div id="playagain"><a href="advance_game2.html">Play</br>Again</a></div>
+            <div id="displayimage"></div>
+            <div id="next" onclick="next()">NEXT IMAGE</div>
+        </div>
+        <div class="bottom">
+            <div class="topcontainer">
+                <div id="capitalname">CAPITAL</div>
+                <div class="capital" id="c11" style="font-size:20px;" onclick="select(11)">Bhubaneshwar</div>
+                <div class="capital" id="c2" onclick="select(2)">Dispur</div>
+                <div class="capital" id="c13" onclick="select(13)">Jaipur</div>
+                <div class="capital" id="c16" onclick="select(16)">Kolkata</div>
+                <div class="capital" id="c9" onclick="select(9)">Imphal</div>
+                <div class="capital" id="c1" onclick="select(1)">Itangar</div>
+                <div class="capital" id="c7" style="font-size:20px" onclick="select(7)">Thiruvanan-</br>thapuram</div>
+                <div class="capital" id="c10" onclick="select(10)">Aizawi</div>
+                <div class="capital" id="c4" onclick="select(4)">Gandhinagar</div>
+                <div class="capital" id="c14" onclick="select(14)">Gangtok</div>
+                <div class="capital" id="c3" onclick="select(3)">Panaji</div>
+                <div class="capital" id="c12" onclick="select(12)">Chandigarh</div>
+                <div class="capital" id="c15" onclick="select(11)">Chennai</div>
+                <div class="capital" id="c8" onclick="select(8)">Mumbai</div>
+                <div class="capital" id="c5" style="font-size:20px" onclick="select(5)">Srinagar and Jammu</div>
+                <div class="capital" id="c6" onclick="select(6)">Bangalore</div>
+            </div>
+            <div class="bottomcontainer">
+                <div id="languagename">LANGUAGE</div>
+                <div class="language" id="l6" onclick="select(6)">kannad</div>
+                <div class="language" id="l5" onclick="select(5)">urdu</div>
+                <div class="language" id="l8" onclick="select(8)">Marathi</div>
+                <div class="language" id="l15" onclick="select(15)">tamil</div>
+                <div class="language" id="l12" onclick="select(12)">punjabi</div>
+                <div class="language" id="l3" onclick="select(3)">kokani</div>
+                <div class="language" id="l14" onclick="select(14)">nepali</div>
+                <div class="language" id="l4" onclick="select(4)">gujarati</div>
+                <div class="language" id="l10" onclick="select(10)">mizo</div>
+                <div class="language" id="l7" onclick="select(7)">malayalam</div>
+                <div class="language" id="l1" onclick="select(1)">english</div>
+                <div class="language" id="l9" onclick="select(9)">manipuri</div>
+                <div class="language" id="l16" onclick="select(16)">bengali</div>
+                <div class="language" id="l13" onclick="select(13)">hindi</div>
+                <div class="language" id="l2" onclick="select(2)">aasamese</div>
+                <div class="language" id="l11" onclick="select(11)">oriya</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            checkOldUser();
+            loadGame();
+        });
+        /************************************************************************************/
+        function checkOldUser() {
+            if (getCookie("name") != "" && getCookie("icon") != "") {
+                setUserData();
+            }
+            else {
+                window.location.assign("enterNameEnglish.html");
+            }
+        }
+        /************************************************************************************/
+        function setUserData() {
+            document.getElementById("userName").innerHTML = getCookie("name");
+            if (getCookie("icon") < 10) {
+                document.getElementById("userImage").innerHTML = "<img src=img/icons/0" + getCookie("icon") + ".png />";
+            }
+            else {
+                document.getElementById("userImage").innerHTML = "<img src=img/icons/" + getCookie("icon") + ".png />";
+            }
+        }
+        /************************************************************************************/
+        function changeuser() {
+            document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            document.cookie = "icon=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        }
+        newbg = 0;
+        bg = "";
+        i = 1;
+        a = 0;
+        b = 0;
+        /************************************************************************************/
+        function loadGame() {
+            document.getElementById("displayimage").innerHTML = "<img src=img/Advance-2/" + i + ".jpg />";
+        }
+
+        function next() {
+            i++;
+            if (i <= 16 && i >= 1) document.getElementById("displayimage").innerHTML = "<img src=img/Advance-2/" + i + ".jpg />";
+            else i = 1;
+        }
+
+        function select(num) {
+            $('#c' + num).click(function () {
+                if (num == i) {
+                    document.getElementById('c' + num).innerHTML = " ";
+                    a = 1;
+                }
+                else {
+                    $('#c' + num).fadeOut(250);
+                    $('#c' + num).fadeIn(250);
+                }
+            });
+            $('#l' + num).click(function () {
+                if (num == i) {
+                    document.getElementById('l' + num).innerHTML = " ";
+                    b = 1;
+                }
+                else {
+                    $('#l' + num).fadeOut(250);
+                    $('#l' + num).fadeIn(250);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/selectCateGory.css" />
+    <title>Select Category | Edutainer's</title>
+</head>
+
+<body>
+    <div id="header">
+        <div id="userContainer">
+            <div id="userImage"></div>
+            <div class="welcome">Welcome,</div>
+            <div id="userName"></div>
+            <div id="logout" onclick="changeuser();"><a href="enterName_gujarati.html">-> Change Name and Icon</a></div>
+            <div id="changeLanguage"><a href="index.html">-> Change Language</a></div>
+        </div>
+        <div id="Heading">Edutainer's</div>
+    </div>
+    <div id="content">
+        <a href="elementry.html" style="color:black;">
+            <div class="category_1" style="width:100%;height:calc(100%/3);background: #F9EBEA url('img/primary.png') center no-repeat;background-size: auto 70%;position: absolute;box-shadow: 0px 5px 5px rgba(0,0,0,0.25);z-index: 3;background-position: 50px;text-align: center;font-size: 50px;display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;"> Elementary</div>
+        </a>
+        <a href="intermediate.html" style="color:black;">
+            <div class="category_1" style="width:100%;height:calc(100%/3);background: #EAF2F8 url('img/intermediate.png') center no-repeat;background-size: auto 70%;position: absolute;top:calc(100%/3 * 1);box-shadow: 0px 5px 5px rgba(0,0,0,0.25);z-index: 2;background-position: calc(100% - 50px);text-align: center;font-size: 50px;display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;"> Intermediate</div>
+        </a>
+        <a href="Advance.html" style="color:black;">
+            <div class="category_1" style="width:100%;height:calc(100%/3);background: #E8F8F5 url('img/advanced.png') center no-repeat;background-size: auto 70%;position: absolute;top:calc(100%/3 * 2);box-shadow: 0px 5px 5px rgba(0,0,0,0.25);z-index: 1;background-position: 50px;text-align: center;font-size: 50px;display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;"> Advanced</div>
+        </a>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript">
+        /************************************************************************************/
+        $(document).ready(function () {
+            checkOldUser();
+        });
+        /************************************************************************************/
+        function checkOldUser() {
+            if (getCookie("name") != "" && getCookie("icon") != "") {
+                setUserData();
+            }
+            else {
+                window.location.assign("enterName_gujarati.html");
+            }
+        }
+        /************************************************************************************/
+        function setUserData() {
+            document.getElementById("userName").innerHTML = getCookie("name");
+            if (getCookie("icon") < 10) {
+                document.getElementById("userImage").innerHTML = "<img src=img/icons/0" + getCookie("icon") + ".png />";
+            }
+            else {
+                document.getElementById("userImage").innerHTML = "<img src=img/icons/" + getCookie("icon") + ".png />";
+            }
+        }
+        /************************************************************************************/
+        function changeuser() {
+            document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            document.cookie = "icon=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        }
+        /************************************************************************************/
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>intermediate Level</title>
+    <link rel="stylesheet" type="text/css" href="style/selectCateGory.css" />
+    <style>
+        .gamdata {
+            float: left;
+            height: 350px;
+            width: 300px;
+            margin: 5% 5% 0% 5%;
+        }
+        
+        .gameimage {
+            float: left;
+            height: 300px;
+            width: 300px;
+            margin: 5% 5% 0% 5%;
+        }
+        
+        .gamename {
+            float: left;
+            width: 300px;
+            height: 35px;
+            background: white;
+            margin: 0% 5% 5% 5%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            padding-top: 2%;
+        }
+        
+        #game1 {
+            background: white url('img/intermediate_1_background.png') no-repeat center;
+        }
+        
+        #game2 {
+            background: white url('img/intermediate_2_background.jpg') no-repeat center;
+        }
+        
+        #game3 {
+            background: white url('img/intermediate_3_background.jpg') repeat center;
+        }
+        
+        .playbutton {
+            float: left;
+            width: 140px;
+            height: 50px;
+            background: royalblue;
+            border: 5px solid #000;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            font-size: 40px;
+        }
+        
+        .playinfo {
+            float: left;
+            width: 140px;
+            height: 50px;
+            background: #3B3436;
+            border: 5px solid #000;
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        
+        .playbox {
+            width: 300px;
+            float: left;
+            margin-left: 5%;
+            margin-top: -5%;
+            background-color: #3B3436;
+        }
+        
+        #back {
+            position: absolute;
+            width: 8%;
+            height: 7%;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            box-shadow: 1px 1px 2px #ccc;
+            background: royalblue;
+            margin-top: 1.5%;
+            font-size: 2em;
+        }
+        
+        #back a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="userContainer">
+            <div id="userImage"></div>
+            <div class="welcome">સુસ્વાગતમ્,</div>
+            <div id="userName"></div>
+            <div id="logout" onclick="changeuser();"><a href="enterName_gujarati.html">-> નામ અને આયકન બદલો</a></div>
+            <div id="changeLanguage"><a href="index.html">-> ભાષા બદલો</a></div>
+        </div>
+        <div id="Heading">Edutainer's</div>
+    </div>
+    <div id="content">
+        <div id="back"><a href="selectCategory_english.html">BACK</a></div>
+        <div id="e_1">
+            <div class="gamdata">
+                <div class="gameimage" id="game1"></div>
+                <div class="gamename">Countries & Flags</div>
+                <div class="playbox">
+                    <div class="playbutton" onclick="playcounter(1)">Play</div>
+                    <div class="playinfo" id="1"></div>
+                </div>
+                <div class="hscore" id="hscore1"></div>
+            </div>
+        </div>
+        <div id="e_2">
+            <div class="gamdata">
+                <div class="gameimage" id="game2"></div>
+                <div class="gamename">Scientists & Inventions</div>
+                <div class="playbox">
+                    <div class="playbutton" onclick="playcounter(2)">Play</div>
+                    <div class="playinfo" id="2"></div>
+                </div>
+                <div class="hscore" id="hscore2"></div>
+            </div>
+        </div>
+        <div id="e_3">
+            <div class="gamdata">
+                <div class="gameimage" id="game3"></div>
+                <div class="gamename">Countries & currency</div>
+                <div class="playbox">
+                    <div class="playbutton" onclick="playcounter(3)">Play</div>
+                    <div class="playinfo" id="3"></div>
+                </div>
+                <div class="hscore" id="hscore3"></div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                checkOldUser();
+            });
+            /************************************************************************************/
+            function checkOldUser() {
+                if (getCookie("name") != "" && getCookie("icon") != "") {
+                    setUserData();
+                    initializeCategories();
+                }
+                else {
+                    window.location.assign("enterNameEnglish.html");
+                }
+            }
+            /************************************************************************************/
+            function setUserData() {
+                document.getElementById("userName").innerHTML = getCookie("name");
+                document.getElementById("1").innerHTML = getCookie("intermediate_game1") + "Times you play";
+                document.getElementById("2").innerHTML = getCookie("intermediate_game2") + "Times you play";
+                document.getElementById("3").innerHTML = getCookie("intermediate_game3") + "Times you play";
+                document.getElementById("hscore1").innerHTML = "Score : " + getCookie("i1");
+                document.getElementById("hscore2").innerHTML = "Score : " + getCookie("i2");
+                document.getElementById("hscore3").innerHTML = "Score : " + getCookie("i3");
+                if (getCookie("icon") < 10) {
+                    document.getElementById("userImage").innerHTML = "<img src=img/icons/0" + getCookie("icon") + ".png />";
+                }
+                else {
+                    document.getElementById("userImage").innerHTML = "<img src=img/icons/" + getCookie("icon") + ".png />";
+                }
+            }
+
+            function changeuser() {
+                document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+                document.cookie = "icon=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            }
+
+            function playcounter(num) {
+                switch (num) {
+                case 1:
+                    {
+                        if (getCookie("intermediate_game1") == "") {
+                            setCookie("intermediate_game1", 1, 365);
+                            document.getElementById("1").innerHTML = getCookie("intermediate_game1") + "Times you play";
+                            window.location.assign("intermediate_game1.html");
+                            break;
+                        }
+                        else {
+                            setCookie("intermediate_game1", parseInt(getCookie("intermediate_game1")) + 1, 365);
+                            document.getElementById("1").innerHTML = getCookie("intermediate_game1") + "Times you play";
+                            window.location.assign("intermediate_game1.html");
+                            break;
+                        }
+                    }
+                case 2:
+                    {
+                        if (getCookie("intermediate_game2") == "") {
+                            setCookie("intermediate_game2", 1, 365);
+                            document.getElementById("2").innerHTML = getCookie("intermediate_game2") + "Times you play";
+                            window.location.assign("intermediate_game2.html");
+                            break;
+                        }
+                        else {
+                            setCookie("intermediate_game2", parseInt(getCookie("intermediate_game2")) + 1, 365);
+                            document.getElementById("2").innerHTML = getCookie("intermediate_game2") + "Times you play";
+                            window.location.assign("intermediate_game2.html");
+                            break;
+                        }
+                    }
+                case 3:
+                    {
+                        if (getCookie("intermediate_game3") == "") {
+                            setCookie("intermediate_game3", 1, 365);
+                            document.getElementById("3").innerHTML = getCookie("intermediate_game3") + "Times you play";
+                            window.location.assign("intermediate_game3.html");
+                            break;
+                        }
+                        else {
+                            setCookie("intermediate_game3", parseInt(getCookie("intermediate_game3")) + 1, 365);
+                            document.getElementById("3").innerHTML = getCookie("intermediate_game3") + "Times you play";
+                            window.location.assign("intermediate_game3.html");
+                            break;
+                        }
+                    }
+                }
+            }
+        </script>
+</body>
+
+</html>

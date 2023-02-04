@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="style/enterName.css">
+    <title>Enter Your Details</title>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="logo"> Edutainer's </div>
+        <div id="back"><a href="index.html">Change Language</a></div>
+    </div>
+    <div id="content">
+        <div id="screen"></div>
+        <div id="error">
+            <h2>Attention!</h2>
+            <ul id="errorData"> </ul>
+        </div>
+        <div id="mainContent">
+            <div id="inputbox">
+                <input type="text" name="name" id="name" placeholder="Type Your Name Here"> </div>
+            <div id="iconBox">
+                <div id="iconContainer"></div>
+                <button id="submitButton" onclick="setUser()">Let's Play</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script>
+    /************************************************************************************/
+    $(document).ready(function () {
+        checkOldUser();
+    });
+    /************************************************************************************/
+    function checkOldUser() {
+        if (getCookie("name") != "" && getCookie("icon") != "") {
+            window.location.assign("selectCategory_english.html");
+        }
+        else {
+            loadIcons();
+        }
+    }
+    /************************************************************************************/
+    function setUser() {
+        $('#errorData').empty();
+        if ($('#name').val().length == 0 || getCookie('icon') == "") {
+            $('#screen').fadeIn('fast', function () {
+                $('#error').animate({
+                    "top": "0px"
+                }, 500);
+            });
+            if ($('#name').val().length == 0) {
+                $('#errorData').append("<li>Please Enter Your Name To Continue");
+            }
+            if (getCookie('icon') == "") {
+                $('#errorData').append("<li>Please select at least one user icon");
+            }
+            setTimeout(function () {
+                $('#error').animate({
+                    "top": "-100%"
+                }, 500, function () {
+                    $('#screen').fadeOut('fast');
+                });
+            }, 5000);
+        }
+        else {
+            setCookie('name', $('#name').val(), 365);
+            window.location.assign("selectCategory_english.html");
+        }
+    }
+    /************************************************************************************/
+    function loadIcons() {
+        total = 88;
+        currentSelectedIcon = null;
+        for (var i = 0; i < total; i++) {
+            var imgId = "0";
+            var imgNum = i + 1;
+            var div = $("<div/>", {
+                'id': imgNum
+                , 'class': "icon"
+            }).appendTo("#iconContainer");
+            if ((i + 1) < 10) {
+                imgId = imgId + "0";
+            }
+            var img = $("<img/>", {
+                'src': "img/icons/" + imgId + imgNum + ".png"
+            }).appendTo(div);
+            div.on('click', function () {
+                $(currentSelectedIcon).removeClass("selectedIcon");
+                currentSelectedIcon = this;
+                $(this).addClass("selectedIcon");
+                setCookie("icon", imgId + this.id, 365);
+            });
+        }
+    }
+    /************************************************************************************/
+</script>
+
+</html>

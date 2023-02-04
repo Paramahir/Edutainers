@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Edutainer's</title>
+    <link rel="stylesheet" type="text/css" href="style/master.css" /> </head>
+
+<body class="index_body" style="text-align:center;">
+    <div id="index_header">
+        <div id="logo">EDUTAINER'S</div>
+    </div>
+    <div id="container">
+        <div class="light" id="light1"> <img class="lamp" src="img/light_1.png" /> <img class="shade" id="shade1" src="img/shelfLight.png" />
+            <div class="letter">
+                <a href="enterNameEnglish.html">
+                    <div id="english"> <img src="img/letters/AE.png"> </div>
+                </a>
+            </div>
+        </div>
+        <div class="light" id="light3"> <img class="lamp" src="img/light_1.png" /> <img class="shade" id="shade3" src="img/shelfLight.png" />
+            <div class="letter">
+                <a href="enterName_gujarati.html">
+                    <div id="gujarati"> <img src="img/letters/AG.png"> </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript">
+        /************************************************************************************/
+        $('#english').mouseenter(function () {
+            $('#shade1').animate({
+                opacity: 1
+            }, 250);
+            $(this).animate({
+                opacity: 1
+            }, 250);
+        });
+        $('#english').mouseleave(function () {
+            $('#shade1').animate({
+                opacity: 0
+            }, 250);
+            $(this).animate({
+                opacity: 0.75
+            }, 250);
+        });
+        /************************************************************************************/
+        $('#hindi').mouseenter(function () {
+            $('#shade2').animate({
+                opacity: 1
+            }, 250);
+            $(this).animate({
+                opacity: 1
+            }, 250).addClass("on");
+        });
+        $('#hindi').mouseleave(function () {
+            $('#shade2').animate({
+                opacity: 0
+            }, 250);
+            $(this).animate({
+                opacity: 0.75
+            }, 250).removeClass("on");
+        });
+        /************************************************************************************/
+        $('#gujarati').mouseenter(function () {
+            $('#shade3').animate({
+                opacity: 1
+            }, 250);
+            $(this).animate({
+                opacity: 1
+            }, 250).addClass("on");
+        });
+        $('#gujarati').mouseleave(function () {
+            $('#shade3').animate({
+                opacity: 0
+            }, 250);
+            $(this).animate({
+                opacity: 0.75
+            }, 250).removeClass("on");
+        });
+        /************************************************************************************/
+    </script>
+</body>
+
+</html>
